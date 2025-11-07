@@ -21,6 +21,7 @@ public class QuestDef {
     private final String ongoing;
     private final String onfinished;
     private final ArrayList<Integer> prerequisites;
+    private final ArrayList<String> preDialogueLines;
     /**
      * -- GETTER --
      *  Returns the ids of the quests this quest is prerequisite of.
@@ -31,7 +32,7 @@ public class QuestDef {
     private final ArrayList<Integer> questGivers;
     private final HashSet<QuestRequest> questRequest;
 
-    public QuestDef(int id, String description, String ongoing, String onfinished, ArrayList<Integer> questGivers, HashSet<QuestRequest> questRequest, ArrayList<Integer> prerequisites) {
+    public QuestDef(int id, String description, String ongoing, String onfinished, ArrayList<Integer> questGivers, HashSet<QuestRequest> questRequest, ArrayList<Integer> prerequisites, ArrayList<String> preDialogueLines) {
         this.id = id;
         this.description = description;
         this.ongoing = ongoing;
@@ -39,6 +40,7 @@ public class QuestDef {
         this.questGivers = questGivers;
         this.questRequest = questRequest;
         this.prerequisites = prerequisites;
+        this.preDialogueLines = preDialogueLines;
         touch = new ArrayList<Integer>();
     }
 

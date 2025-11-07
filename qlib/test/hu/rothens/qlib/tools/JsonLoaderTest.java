@@ -44,6 +44,10 @@ public class JsonLoaderTest {
             "onfinished": "Finished text 1",
             "questgivers": [101, 102],
             "prerequisites": [],
+            "pre_dialog_lines": [
+              "Line 1",
+              "Line 2"
+            ],
             "required": [
               {
                 "id": 201,
@@ -59,6 +63,7 @@ public class JsonLoaderTest {
             "onfinished": "Finished text 2",
             "questgivers": [103],
             "prerequisites": [1],
+            "pre_dialog_lines": [],
             "required": [
               {
                 "id": 301,
@@ -86,6 +91,7 @@ public class JsonLoaderTest {
         assertTrue(quest1.getQuestGivers().contains(101));
         assertTrue(quest1.getQuestGivers().contains(102));
         assertTrue(quest1.getPrerequisites().isEmpty());
+        assertEquals(quest1.getPreDialogLines(), new ArrayList<String>("Line1", "Line2"));
 
         HashSet<QuestRequest> requirements1 = quest1.getQuestRequest();
         assertEquals(1, requirements1.size(), "Quest 1 should have 1 requirement");
@@ -93,6 +99,7 @@ public class JsonLoaderTest {
         assertEquals(201, req1.getSubjectId().intValue());
         assertEquals(RequestType.KILL, req1.getRequestType());
         assertEquals(5, req1.getCount());
+
 
         QuestDef quest2 = quests.get(2);
         assertNotNull(quest2, "Quest 2 should be loaded");
@@ -108,6 +115,7 @@ public class JsonLoaderTest {
         assertEquals(301, req2.getSubjectId().intValue());
         assertEquals(RequestType.GATHER, req2.getRequestType());
         assertEquals(10, req2.getCount());
+        assertTrue(quest2.getPreDialogLines().isEmpty());
     }
 
     @Test

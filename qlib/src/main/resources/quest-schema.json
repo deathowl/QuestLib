@@ -36,6 +36,13 @@
           "type": "integer"
         }
       },
+      "pre_dialogue_lines": {
+        "type": "array",
+        "description": "List of dialogue lines to be displayed before the quest",
+        "items": {
+          "type": "string"
+        }
+      },
       "required": {
         "type": "array",
         "description": "List of requirements to complete this quest",

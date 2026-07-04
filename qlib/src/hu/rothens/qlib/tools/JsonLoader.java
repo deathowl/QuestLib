@@ -64,7 +64,9 @@ public class JsonLoader implements QDBLoader {
                             definition.questgivers != null ? definition.questgivers : new ArrayList<>(),
                             requirements,
                             definition.prerequisites != null ? definition.prerequisites : new ArrayList<>(),
-                            definition.pre_dialog_lines != null ? definition.pre_dialog_lines : new ArrayList<>()
+                            definition.preDialogueLines != null ? definition.preDialogueLines : new ArrayList<>(),
+                            definition.questRewards != null ? definition.questRewards : new ArrayList<>(),
+                            definition.xpReward
                     );
 
                     if (quests.containsKey(questDef.getId())) {
@@ -106,6 +108,12 @@ public class JsonLoader implements QDBLoader {
 
         @JsonProperty("pre_dialog_lines")
         private List<String> preDialogueLines;
+
+        @JsonProperty("quest_rewards")
+        private ArrayList<Integer> questRewards;
+
+        @JsonProperty("xp_reward")
+        private Integer xpReward;
     }
 
     private static class RequirementDTO {

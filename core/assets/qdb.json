@@ -4,11 +4,13 @@
     "description": "First quest of all!",
     "ongoing": "You still didn't finished that?",
     "onfinished": "Yeeey! You finished the quest!",
-    "required":[
-        {"id" : 5, "type" : 0, "count" : 1},
-		{"id" : 3, "type" : 4, "count" : 10}
+    "required": [
+      { "id": 5, "type": 0, "count": 1 },
+      { "id": 3, "type": 4, "count": 10 }
     ],
-    "questgivers": [1]
+    "questgivers": [1],
+    "quest_rewards": [101, 102],
+    "xp_reward": 50
   },
   {
     "id": 2,
@@ -16,9 +18,9 @@
     "ongoing": "This is 'a' quest!",
     "onfinished": "Yeeey! You finished 'a' quest!",
     "prerequisites": [1],
-    "required":[
-      {"id" : 5, "type" : 0, "count" : 1},
-      {"id" : 3, "type" : 4, "count" : 10}
+    "required": [
+      { "id": 5, "type": 0, "count": 1 },
+      { "id": 3, "type": 4, "count": 10 }
     ],
     "questgivers": [1]
   },
@@ -27,9 +29,9 @@
     "description": "Second Quest - b!",
     "ongoing": "This is 'b' quest!",
     "onfinished": "Yeeey! You finished 'b' quest!",
-    "required":[
-      {"id" : 5, "type" : 0, "count" : 1},
-      {"id" : 3, "type" : 4, "count" : 10}
+    "required": [
+      { "id": 5, "type": 0, "count": 1 },
+      { "id": 3, "type": 4, "count": 10 }
     ],
     "prerequisites": [1],
     "questgivers": [1]
@@ -39,11 +41,11 @@
     "description": "You have to do this",
     "ongoing": "You really have to do this",
     "onfinished": "Awww, done!",
-    "required":[
-      {"id" : 5, "type" : 0, "count" : 1},
-      {"id" : 3, "type" : 4, "count" : 10}
+    "required": [
+      { "id": 5, "type": 0, "count": 1 },
+      { "id": 3, "type": 4, "count": 10 }
     ],
-    "prerequisites": [2,3],
+    "prerequisites": [2, 3],
     "questgivers": [1]
   },
   {
@@ -51,9 +53,9 @@
     "description": "This is another easy quest!",
     "ongoing": "Hey, this is easy! Don't mess around!",
     "onfinished": "Easy quest finished!",
-    "required":[
-      {"id" : 5, "type" : 0, "count" : 1},
-      {"id" : 3, "type" : 4, "count" : 10}
+    "required": [
+      { "id": 5, "type": 0, "count": 1 },
+      { "id": 3, "type": 4, "count": 10 }
     ],
     "questgivers": [1]
   },
@@ -62,11 +64,11 @@
     "description": "The last quest for this time!",
     "ongoing": "You really have to do that biatsch!",
     "onfinished": "Yeeey! You finished 'a' quest!",
-    "required":[
-      {"id" : 5, "type" : 0, "count" : 1},
-      {"id" : 3, "type" : 4, "count" : 10}
+    "required": [
+      { "id": 5, "type": 0, "count": 1 },
+      { "id": 3, "type": 4, "count": 10 }
     ],
-    "prerequisites": [4,5],
+    "prerequisites": [4, 5],
     "questgivers": [1]
   }
 ]

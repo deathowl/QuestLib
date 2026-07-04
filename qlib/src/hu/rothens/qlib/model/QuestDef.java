@@ -1,5 +1,6 @@
 package hu.rothens.qlib.model;
 
+import lombok.AccessLevel;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.ToString;
@@ -7,6 +8,7 @@ import lombok.ToString;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Optional;
 
 /**
  * This class is a flyweight for prototyping a quest.
@@ -31,8 +33,11 @@ public class QuestDef {
     private final ArrayList<Integer> touch;
     private final ArrayList<Integer> questGivers;
     private final HashSet<QuestRequest> questRequest;
+    private final ArrayList<Integer> questRewards;
+    @Getter(AccessLevel.NONE)
+    private final Integer xpReward;
 
-    public QuestDef(int id, String description, String ongoing, String onfinished, ArrayList<Integer> questGivers, HashSet<QuestRequest> questRequest, ArrayList<Integer> prerequisites, ArrayList<String> preDialogueLines) {
+    public QuestDef(int id, String description, String ongoing, String onfinished, ArrayList<Integer> questGivers, HashSet<QuestRequest> questRequest, ArrayList<Integer> prerequisites, ArrayList<String> preDialogueLines, ArrayList<Integer> questRewards, Integer xpReward) {
         this.id = id;
         this.description = description;
         this.ongoing = ongoing;
@@ -41,7 +46,13 @@ public class QuestDef {
         this.questRequest = questRequest;
         this.prerequisites = prerequisites;
         this.preDialogueLines = preDialogueLines;
+        this.questRewards = questRewards != null ? questRewards : new ArrayList<Integer>();
+        this.xpReward = xpReward;
         touch = new ArrayList<Integer>();
+    }
+
+    public Optional<Integer> getXpReward() {
+        return Optional.ofNullable(xpReward);
     }
 
     public void addTouch(int i){

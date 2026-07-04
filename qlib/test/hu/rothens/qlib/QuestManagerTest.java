@@ -44,7 +44,8 @@ public class QuestManagerTest {
         HashSet<QuestRequest> reqs = new HashSet<>();
         reqs.add(new QuestRequest(200 + id, RequestType.KILL, 5));
 
-        return new QuestDef(id, desc, "Ongoing " + id, "Finished " + id, givers, reqs, prereqs);
+        return new QuestDef(id, desc, "Ongoing " + id, "Finished " + id, givers, reqs, prereqs,
+                new ArrayList<String>(), new ArrayList<Integer>(), null);
     }
 
     @BeforeEach

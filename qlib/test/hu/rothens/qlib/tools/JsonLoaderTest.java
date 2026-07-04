@@ -12,8 +12,10 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Path;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -48,6 +50,8 @@ public class JsonLoaderTest {
               "Line 1",
               "Line 2"
             ],
+            "quest_rewards": [201, 202],
+            "xp_reward": 50,
             "required": [
               {
                 "id": 201,
@@ -91,7 +95,16 @@ public class JsonLoaderTest {
         assertTrue(quest1.getQuestGivers().contains(101));
         assertTrue(quest1.getQuestGivers().contains(102));
         assertTrue(quest1.getPrerequisites().isEmpty());
-        assertEquals(quest1.getPreDialogLines(), new ArrayList<String>("Line1", "Line2"));
+        ArrayList<String> expectedPreDialogueLines = new ArrayList<>();
+        expectedPreDialogueLines.add("Line 1");
+        expectedPreDialogueLines.add("Line 2");
+        assertEquals(expectedPreDialogueLines, quest1.getPreDialogueLines());
+
+        ArrayList<Integer> expectedRewards = new ArrayList<>();
+        expectedRewards.add(201);
+        expectedRewards.add(202);
+        assertEquals(expectedRewards, quest1.getQuestRewards());
+        assertEquals(Optional.of(50), quest1.getXpReward());
 
         HashSet<QuestRequest> requirements1 = quest1.getQuestRequest();
         assertEquals(1, requirements1.size(), "Quest 1 should have 1 requirement");
@@ -115,7 +128,9 @@ public class JsonLoaderTest {
         assertEquals(301, req2.getSubjectId().intValue());
         assertEquals(RequestType.GATHER, req2.getRequestType());
         assertEquals(10, req2.getCount());
-        assertTrue(quest2.getPreDialogLines().isEmpty());
+        assertTrue(quest2.getPreDialogueLines().isEmpty());
+        assertTrue(quest2.getQuestRewards().isEmpty());
+        assertFalse(quest2.getXpReward().isPresent());
     }
 
     @Test
